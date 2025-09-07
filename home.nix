@@ -22,7 +22,7 @@
 
     shellAliases = {
       ll = "ls -la";
-      update = "sudo nixos-rebuild switch --flake /home/user/.dotfiles";
+      update = "/home/user/.dotfiles/update.sh";
     };
 
     history.size = 10000;
