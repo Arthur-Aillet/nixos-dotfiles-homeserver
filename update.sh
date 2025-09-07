@@ -3,18 +3,25 @@
 
 pushd /home/user/.dotfiles/
 
-if git diff --quiet; then
+
+changes=$(git diff @{upstream} --color)
+changes=$changes$(git ls-files --others --exclude-standard |
+    while read -r i; do git diff @{upstream} --color -- /dev/null "$i" ; done)
+
+if test -z $changes; then
     echo "No changes detected, exiting."
     popd
     exit 0
 fi
 
-git add .
+git diff @{upstream} --color
+git ls-files --others --exclude-standard |
+    while read -r i; do git diff @{upstream} --color -- /dev/null "$i"; done
 
 alejandra . &>/dev/null \
   || ( alejandra . ; echo "formatting failed!" && exit 1)
 
-git diff -U0 '*.nix'
+git add .
 
 echo "NixOS Rebuilding..."
 
