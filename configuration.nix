@@ -48,6 +48,17 @@
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 
+  fileSystems."/mnt/music" = {
+    device = "/dev/sda1";
+    fsType = "exfat";
+    options = [
+      # If you don't have this options attribute, it'll default to "defaults"
+      # boot options for fstab. Search up fstab mount options you can use
+      "users" # Allows any user to mount and unmount
+      "nofail" # Prevent system from failing if this drive doesn't mount
+    ];
+  };
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
