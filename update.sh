@@ -8,7 +8,7 @@ changes=$(git diff @{upstream} --color)
 changes=$changes$(git ls-files --others --exclude-standard |
     while read -r i; do git diff @{upstream} --color -- /dev/null "$i" ; done)
 
-if test -z $changes; then
+if test -z "$changes"; then
     echo "No changes detected, exiting."
     popd
     exit 0

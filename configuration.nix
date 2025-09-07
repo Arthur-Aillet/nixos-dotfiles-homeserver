@@ -38,8 +38,8 @@
     enable = true;
     ports = [5432];
     settings = {
-      # PasswordAuthentication = false;
-      # KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
       AllowUsers = ["user"];
     };
