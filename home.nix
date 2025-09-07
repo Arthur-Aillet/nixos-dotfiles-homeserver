@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   home.username = "user";
   home.homeDirectory = "/home/user";
   home.stateVersion = "25.05";
@@ -31,8 +34,8 @@
 
   programs.git = {
     enable = true;
-    userName="Arthur-Aillet";
-    userEmail="arthur.aillet@epitech.eu";
+    userName = "Arthur-Aillet";
+    userEmail = "arthur.aillet@epitech.eu";
     extraConfig = {
       init.defaultBranch = "main";
     };
