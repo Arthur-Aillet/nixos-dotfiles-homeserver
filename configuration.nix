@@ -48,9 +48,9 @@
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 
-  fileSystems."/mnt/music" = {
-    device = "/dev/sda1";
-    fsType = "exfat";
+  fileSystems."/home/user/music" = {
+    device = "/dev/shared/volume";
+    fsType = "ext4";
     options = [
       # If you don't have this options attribute, it'll default to "defaults"
       # boot options for fstab. Search up fstab mount options you can use
