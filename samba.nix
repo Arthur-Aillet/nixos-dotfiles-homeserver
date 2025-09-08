@@ -35,7 +35,7 @@
     };
   };
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 445 139 ];
-  networking.firewall.allowedUDPPorts = [ 137 138 ];
+  networking.firewall.allowedTCPPorts = [445 139 5030];
+  networking.firewall.allowedUDPPorts = [137 138 5030];
   networking.firewall.allowPing = true;
 }
