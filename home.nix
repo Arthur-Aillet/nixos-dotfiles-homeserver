@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     zsh
     git
+    tree
   ];
 
   programs.zsh = {
@@ -24,6 +25,7 @@
       ll = "ls -la";
       update = "sudo nixos-rebuild switch  --flake /home/user/.dotfiles";
       format = "alejandra . &>/dev/null || ( alejandra . ; echo 'formatting failed!' && exit 1)";
+      progress = "watch -n 2 tree";
     };
 
     history.size = 10000;
