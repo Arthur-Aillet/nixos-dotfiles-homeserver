@@ -36,6 +36,8 @@
     # openssh.authorizedKeys.keys = [ "" ];
   };
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   services.openssh = {
     enable = true;
     ports = [5432];
@@ -44,6 +46,7 @@
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
       AllowUsers = ["user"];
+      MaxAuthTries = 100;
     };
   };
 
@@ -77,6 +80,10 @@
       "/home/user/music/navidrome-data:/data"
       "/home/user/music/music:/music"
     ];
+  };
+
+  environment.variables = {
+    TERM = "xterm-256color";
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

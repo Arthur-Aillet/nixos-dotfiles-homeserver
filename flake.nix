@@ -24,7 +24,9 @@
         system = "x86_64-linux";
         modules = [
           {
-            environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];
+            environment.systemPackages = [
+              alejandra.defaultPackage."x86_64-linux"
+            ];
           }
           ./configuration.nix
           home-manager.nixosModules.home-manager
