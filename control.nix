@@ -2,10 +2,15 @@
 {
   control = {
     defaultPath = "/home/user";
-    navidrome.enable = true;
+    navidrome = {
+      enable = true;
+      subdomain = "music";
+    };
+
     jellyfin = {
       enable = true;
       paths.media = { media = "/home/user/media"; };
+      subdomain = "movie";
     };
 
     routing = {
