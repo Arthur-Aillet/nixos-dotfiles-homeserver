@@ -23,6 +23,27 @@
         "type": "github"
       }
     },
+    "control": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763765611,
+        "narHash": "sha256-iRcnS4c8bApSMgd6x/XHCxeWdgUZ8cgZEWElx92XfGM=",
+        "owner": "axel-denis",
+        "repo": "control",
+        "rev": "9fe5d76ef6834f45e6c9ad82114b60939b1952e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "axel-denis",
+        "ref": "navidrome",
+        "repo": "control",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -100,6 +121,7 @@
     "root": {
       "inputs": {
         "alejandra": "alejandra",
+        "control": "control",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

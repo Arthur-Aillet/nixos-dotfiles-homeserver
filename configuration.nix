@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     #./samba.nix
     #./slskd.nix
+    ./control.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

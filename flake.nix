@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     control = {
-      url = "github:axel-denis/control/v1.0";
+      url = "github:axel-denis/control/navidrome";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -21,6 +21,7 @@
     alejandra,
     nixpkgs,
     home-manager,
+    control,
     ...
   }: {
     nixosConfigurations = {
@@ -32,13 +33,14 @@
               alejandra.defaultPackage."x86_64-linux"
             ];
           }
-          ./configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.user = import ./home.nix;
           }
+          control.nixosModules.default
+          ./configuration.nix
         ];
       };
     };
