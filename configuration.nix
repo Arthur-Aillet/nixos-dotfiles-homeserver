@@ -14,7 +14,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.device = "/dev/disk/by-id/ata-M4-CT064M4SSD2_0000000012390917D3F1";
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
