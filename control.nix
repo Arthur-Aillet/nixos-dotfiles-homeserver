@@ -1,5 +1,4 @@
-{ control, ...} :
-{
+{control, ...}: {
   control = {
     defaultPath = "/home/user";
     navidrome = {
@@ -9,7 +8,7 @@
 
     jellyfin = {
       enable = true;
-      paths.media = { media = "/home/user/media"; };
+      paths.media = {media = "/home/user/media";};
       subdomain = "movie";
     };
 

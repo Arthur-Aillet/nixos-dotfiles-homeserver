@@ -34,8 +34,6 @@
       "wheel"
       "networkmanager"
     ];
-
-    # openssh.authorizedKeys.keys = [ "" ];
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -44,13 +42,15 @@
     enable = true;
     ports = [5432];
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
       AllowUsers = ["user"];
-      MaxAuthTries = 100;
+      MaxAuthTries = 10;
     };
   };
+
+  services.fail2ban.enable = true;
 
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
