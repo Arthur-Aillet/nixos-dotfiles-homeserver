@@ -15,6 +15,16 @@
     };
 
     hdd-spindown.enable = true;
+    openspeedtest = {
+      enable = true;
+      subdomain = "speed";
+      forceLan = true;
+    };
+
+    psitransfer = {
+      subdomain = "transfer";
+      enable = true;
+    };
 
     jellyfin = {
       enable = true;

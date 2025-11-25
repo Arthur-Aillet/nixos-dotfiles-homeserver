@@ -7,7 +7,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    #./samba.nix
+    ./samba.nix
     #./slskd.nix
     ./control.nix
   ];
