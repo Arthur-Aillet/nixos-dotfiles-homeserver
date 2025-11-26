@@ -14,23 +14,31 @@
       url = "github:axel-denis/control/navidrome";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     alejandra,
+    agenix,
     nixpkgs,
     home-manager,
     control,
     ...
-  }: {
+  }: let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           {
             environment.systemPackages = [
-              alejandra.defaultPackage."x86_64-linux"
+              alejandra.defaultPackage."${system}"
+              inputs.agenix.packages."${system}".default
             ];
           }
           home-manager.nixosModules.home-manager
@@ -41,6 +49,7 @@
           }
           control.nixosModules.default
           ./configuration.nix
+          agenix.nixosModules.default
         ];
       };
     };

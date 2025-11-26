@@ -4,7 +4,8 @@
     navidrome = {
       enable = true;
       configuration = {
-        ND_LOGLEVEL = "info";
+        ND_LASTFM_APIKEY = "d5955661481253861b2d1f6e2cf282f4";
+        ND_LASTFM_SECRET = "8bb5e92034c3b05dd5ed04bac138f6c6";
       };
       subdomain = "music";
       paths.music = {
@@ -28,7 +29,7 @@
 
     jellyfin = {
       enable = true;
-      paths.media = { movies = "/hdd1/media/movies"; };
+      paths.media = {movies = "/hdd1/media/movies";};
       subdomain = "movie";
     };
 
