@@ -11,31 +11,33 @@
       openFirewall = true;
       settings = {
         global = {
+          "workgroup" = "WORKGROUP";
+          # "server string" = "smbnix";
+          # "netbios name" = "smbnix";
+          "security" = "user";
+          #"use sendfile" = "yes";
+          #"max protocol" = "smb2";
+          # note: localhost is the ipv6 localhost ::1
+          "hosts allow" = "192.168.0. 192.168.1. 127.0.0.1 localhost";
+          "hosts deny" = "0.0.0.0/0";
           "guest account" = "nobody";
           "map to guest" = "bad user";
         };
-        music = {
-          path = "/home/user/music";
-          writable = "true";
-          comment = "Hello World!";
+        "music" = {
+          "path" = "/home/user/music";
+          "browseable" = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
           "create mask" = "0644";
           "directory mask" = "0755";
+          "force user" = "user";
+          "force group" = "users";
         };
       };
-    };
-    avahi = {
-      publish.enable = true;
-      publish.userServices = true;
-      enable = true;
-      openFirewall = true;
     };
     samba-wsdd = {
       enable = true;
       openFirewall = true;
     };
   };
-  networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [445 139 5030];
-  networking.firewall.allowedUDPPorts = [137 138 5030];
-  networking.firewall.allowPing = true;
 }
