@@ -1,4 +1,4 @@
-{control, ...}: {
+{control, lib, ...}: {
   control = {
     defaultPath = "/home/user";
     navidrome = {
@@ -23,6 +23,23 @@
       enable = true;
     };
 
+    slskd = {
+      enable = true;
+      paths = {
+        directories = {
+          "music" = "/home/user/music/music";
+          "data" = "/home/user/music";
+          # "downloads" = "/home/user/music/downloads";
+          # "incomplete" = "/home/user/music/incomplete";
+        };
+      };
+    };
+
+    # cloudreve = {
+    #   enable = true;
+    #   forceLan = true;
+    # };
+
     # system.activationScripts."psi-transfer-password" = ''
     #   secret=$(cat "${config.age.secrets.psi_transfer.path}")
     #   configFile=/run/dex/config.yaml
@@ -45,7 +62,9 @@
       checkClientCertificate = true;
     };
   };
+
   imports = [
     ./secrets/lastfm.nix
+    ./secrets/slskd.nix
   ];
 }
