@@ -28,10 +28,10 @@
           "browseable" = "yes";
           "read only" = "no";
           "guest ok" = "no";
-          "create mask" = "0644";
-          "directory mask" = "0755";
+          "create mask" = "0664";
+          "directory mask" = "0775";
           "force user" = "user";
-          "force group" = "users";
+          "force group" = "music";
         };
       };
     };

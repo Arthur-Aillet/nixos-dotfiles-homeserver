@@ -1,6 +1,8 @@
 # /etc/nixos/flake.nix
 {
   inputs = {
+    self.submodules = true;
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -11,9 +13,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     control = {
-      url = "github:axel-denis/control/navidrome";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "path:control";
     };
+    # control = {
+    #   url = "github:axel-denis/control/navidrome";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";

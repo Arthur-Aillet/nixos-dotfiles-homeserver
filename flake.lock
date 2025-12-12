@@ -48,24 +48,17 @@
     },
     "control": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1763765611,
-        "narHash": "sha256-iRcnS4c8bApSMgd6x/XHCxeWdgUZ8cgZEWElx92XfGM=",
-        "owner": "axel-denis",
-        "repo": "control",
-        "rev": "9fe5d76ef6834f45e6c9ad82114b60939b1952e4",
-        "type": "github"
+        "path": "control",
+        "type": "path"
       },
       "original": {
-        "owner": "axel-denis",
-        "ref": "navidrome",
-        "repo": "control",
-        "type": "github"
-      }
+        "path": "control",
+        "type": "path"
+      },
+      "parent": []
     },
     "darwin": {
       "inputs": {
@@ -171,11 +164,27 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1763948260,
-        "narHash": "sha256-dY9qLD0H0zOUgU3vWacPY6Qc421BeQAfm8kBuBtPVE0=",
+        "lastModified": 1764939437,
+        "narHash": "sha256-4TLFHUwXraw9Df5mXC/vCrJgb50CRr3CzUzF0Mn3CII=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "00d2457e2f608b4be6fe8b470b0a36816324b0ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1764939437,
+        "narHash": "sha256-4TLFHUwXraw9Df5mXC/vCrJgb50CRr3CzUzF0Mn3CII=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1c8ba8d3f7634acac4a2094eef7c32ad9106532c",
+        "rev": "00d2457e2f608b4be6fe8b470b0a36816324b0ae",
         "type": "github"
       },
       "original": {
@@ -191,7 +200,7 @@
         "alejandra": "alejandra",
         "control": "control",
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "rust-analyzer-src": {

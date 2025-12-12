@@ -23,32 +23,53 @@
       enable = true;
     };
 
-    slskd = {
+    nicotine = {
+      enable = true;
+      socket = true;
+      configuration = {
+        TZ="Europe/Paris";
+        DARKMODE="True";
+        UMASK="002";
+      };
+      paths = {
+        directories = {
+          "shared" = "/home/user/music";
+        };
+        downloads = "/home/user/music/downloads";
+      };
+    };
+
+    metadata-remote = {
       enable = true;
       paths = {
         directories = {
-          "music" = "/home/user/music/music";
-          "data" = "/home/user/music";
-          # "downloads" = "/home/user/music/downloads";
-          # "incomplete" = "/home/user/music/incomplete";
+          "music/music" = "/home/user/music/music";
+          "music/downloads" = "/home/user/music/downloads";
         };
       };
     };
 
-    # cloudreve = {
-    #   enable = true;
-    #   forceLan = true;
-    # };
+    picard = {
+      enable = true;
+      paths = {
+        directories = {
+          "storage" = "/home/user/music";
+        };
+      };
+    };
 
-    # system.activationScripts."psi-transfer-password" = ''
-    #   secret=$(cat "${config.age.secrets.psi_transfer.path}")
-    #   configFile=/run/dex/config.yaml
-    #   ${pkgs.gnused}/bin/sed -i "s#@TEMPORARY-PSI-TRANSFER-PASSWORD@#$secret#" "$configFile"
-    # '';
+    filestash = {
+      enable = true;
+      paths = {
+        directories = {
+          "/mnt/music" = "/home/user/music";
+        };
+      };
+    };
 
     jellyfin = {
       enable = true;
-      paths.media = {movies = "/hdd1/media/movies";};
+      paths.media = { movies = "/hdd1/media/movies"; };
       subdomain = "movie";
     };
 
@@ -65,6 +86,6 @@
 
   imports = [
     ./secrets/lastfm.nix
-    ./secrets/slskd.nix
+    ./secrets/control.nix
   ];
 }

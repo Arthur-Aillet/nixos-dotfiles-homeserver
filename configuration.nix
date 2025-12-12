@@ -40,12 +40,16 @@
     shell = pkgs.zsh;
     extraGroups = [
       "wheel"
+      "music"
       "networkmanager"
     ];
   };
 
   environment.systemPackages = with pkgs; [
     git-crypt
+    btop
+    ffmpeg
+    scdl
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
