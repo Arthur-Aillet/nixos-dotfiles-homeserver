@@ -84,8 +84,8 @@
     };
   };
 
-  imports = [
-    ./secrets/lastfm.nix
-    ./secrets/control.nix
-  ];
+  # imports = [
+  #   ./secrets/lastfm.nix
+  #   ./secrets/control.nix
+  # ];
 }

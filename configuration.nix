@@ -6,13 +6,13 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./samba.nix
-    ./control.nix
+    # ./samba.nix
+    # ./control.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/disk/by-id/ata-M4-CT064M4SSD2_0000000012390917D3F1";
+  boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -23,15 +23,15 @@
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
-  age.secrets.auth_key = {
-    file = ./secrets/auth_key.age;
-  };
+  # age.secrets.auth_key = {
+  #   file = ./secrets/auth_key.age;
+  # };
 
-  system.activationScripts."zz-user-authorizedKeys".text = ''
-    mkdir -p "/etc/ssh/authorized_keys.d";
-    cp "${config.age.secrets.auth_key.path}" "/etc/ssh/authorized_keys.d/user";
-    chmod +r "/etc/ssh/authorized_keys.d/user"
-  '';
+  # system.activationScripts."zz-user-authorizedKeys".text = ''
+  #   mkdir -p "/etc/ssh/authorized_keys.d";
+  #   cp "${config.age.secrets.auth_key.path}" "/etc/ssh/authorized_keys.d/user";
+  #   chmod +r "/etc/ssh/authorized_keys.d/user"
+  # '';
 
   users.users.user = {
     isNormalUser = true;
@@ -50,6 +50,7 @@
     btop
     ffmpeg
     scdl
+    alejandra
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -86,5 +87,5 @@
     TERM = "xterm-256color";
   };
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 }
