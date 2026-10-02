@@ -7,13 +7,9 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # alejandra = {
-    #   url = "github:kamadorueda/alejandra/4.0.0";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # control = {
-    #   url = "path:control";
-    # };
+    control = {
+      url = "path:control";
+    };
     # control = {
     #   url = "github:axel-denis/control/navidrome";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -26,11 +22,10 @@
 
   outputs = inputs @ {
     self,
-    # alejandra,
     # agenix,
     nixpkgs,
     home-manager,
-    # control,
+    control,
     ...
   }: let
     system = "x86_64-linux";
@@ -41,7 +36,6 @@
         modules = [
           {
             environment.systemPackages = [
-              # alejandra.defaultPackage."${system}"
               # inputs.agenix.packages."${system}".default
             ];
           }
@@ -51,7 +45,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.user = import ./home.nix;
           }
-          # control.nixosModules.default
+          control.nixosModules.default
           ./configuration.nix
           # agenix.nixosModules.default
         ];

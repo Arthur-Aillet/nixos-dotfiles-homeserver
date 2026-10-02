@@ -1,5 +1,19 @@
 {
   "nodes": {
+    "control": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "path": "control",
+        "type": "path"
+      },
+      "original": {
+        "path": "control",
+        "type": "path"
+      },
+      "parent": []
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -23,6 +37,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1755593991,
+        "narHash": "sha256-BA9MuPjBDx/WnpTJ0EGhStyfE7hug8g85Y3Ju9oTsM4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a58390ab6f1aa810eb8e0f0fc74230e7cc06de03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1788584326,
         "narHash": "sha256-Fd3OB8J9JhgliQwOKcqx4M672CInxi1I5VnwsaXeSQo=",
         "owner": "nixos",
@@ -39,8 +69,9 @@
     },
     "root": {
       "inputs": {
+        "control": "control",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

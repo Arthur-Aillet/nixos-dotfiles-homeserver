@@ -7,13 +7,12 @@
   imports = [
     ./hardware-configuration.nix
     # ./samba.nix
-    # ./control.nix
+    ./control.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -46,6 +45,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    beets
     git-crypt
     btop
     ffmpeg
@@ -69,19 +69,19 @@
 
   services.fail2ban.enable = true;
 
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = "no";
+    AllowHibernation = "no";
+    AllowHybridSleep = "no";
+    AllowSuspendThenHibernate = "no";
+  };
+
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
-
-  fileSystems."/home/user/music" = {
-    device = "/dev/shared/volume";
-    fsType = "ext4";
-    options = [
-      # If you don't have this options attribute, it'll default to "defaults"
-      # boot options for fstab. Search up fstab mount options you can use
-      "users" # Allows any user to mount and unmount
-      "nofail" # Prevent system from failing if this drive doesn't mount
-    ];
-  };
 
   environment.variables = {
     TERM = "xterm-256color";

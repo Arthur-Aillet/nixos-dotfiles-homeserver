@@ -37,9 +37,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Arthur-Aillet";
-    userEmail = "arthur.aillet@epitech.eu";
-    extraConfig = {
+    settings = {
+      user.name = "Arthur-Aillet";
+      user.email = "arthur.aillet@epitech.eu";
       init.defaultBranch = "main";
     };
   };

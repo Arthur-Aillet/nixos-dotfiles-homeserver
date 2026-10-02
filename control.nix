@@ -1,77 +1,82 @@
-{control, lib, ...}: {
+{
+  control,
+  lib,
+  ...
+}: {
   control = {
     defaultPath = "/home/user";
     navidrome = {
       enable = true;
       subdomain = "music";
+      lanOnly = false;
       paths.music = {
-        "/" = "/home/user/music/music";
+        "/" = "/home/user/hddA/music";
       };
       paths.data = "/home/user/music/navidrome-data";
-      forceLan = true;
+      forceLan = false;
     };
 
-    hdd-spindown.enable = true;
+    hdd-spindown.enable = false;
 
     openspeedtest = {
       enable = true;
       subdomain = "speed";
     };
 
-    psitransfer = {
-      subdomain = "transfer";
-      enable = true;
-    };
+    # psitransfer = {
+    #   subdomain = "transfer";
+    #   enable = true;
+    # };
 
-    nicotine = {
-      enable = true;
-      socket = true;
-      configuration = {
-        TZ="Europe/Paris";
-        DARKMODE="True";
-        UMASK="002";
-      };
-      paths = {
-        directories = {
-          "shared" = "/home/user/music";
-        };
-        downloads = "/home/user/music/downloads";
-      };
-    };
+    # nicotine = {
+    #   enable = true;
+    #   socket = true;
+    #   configuration = {
+    #     TZ="Europe/Paris";
+    #     DARKMODE="True";
+    #     UMASK="002";
+    #   };
+    #   paths = {
+    #     directories = {
+    #       "shared" = "/home/user/music";
+    #     };
+    #     downloads = "/home/user/music/downloads";
+    #   };
+    # };
 
-    metadata-remote = {
-      enable = true;
-      paths = {
-        directories = {
-          "music/music" = "/home/user/music/music";
-          "music/downloads" = "/home/user/music/downloads";
-        };
-      };
-    };
+    # metadata-remote = {
+    #   enable = true;
+    #   paths = {
+    #     directories = {
+    #       "music/music" = "/home/user/music/music";
+    #       "music/downloads" = "/home/user/music/downloads";
+    #     };
+    #   };
+    # };
 
-    picard = {
-      enable = true;
-      paths = {
-        directories = {
-          "storage" = "/home/user/music";
-        };
-      };
-    };
+    # picard = {
+    #   enable = true;
+    #   paths = {
+    #     directories = {
+    #       "storage" = "/home/user/music";
+    #     };
+    #   };
+    # };
 
-    filestash = {
-      enable = true;
-      paths = {
-        directories = {
-          "/mnt/music" = "/home/user/music";
-        };
-      };
-    };
+    # filestash = {
+    #   enable = true;
+    #   paths = {
+    #     directories = {
+    #       "/mnt/music" = "/home/user/music";
+    #     };
+    #   };
+    # };
 
-    jellyfin = {
-      enable = true;
-      paths.media = { movies = "/hdd1/media/movies"; };
-      subdomain = "movie";
-    };
+    # jellyfin = {
+    #   enable = true;
+    #   paths.media = { movies = "/hdd1/media/movies"; };
+    #   subdomain = "movie";
+    # };
 
     routing = {
       enable = true;
