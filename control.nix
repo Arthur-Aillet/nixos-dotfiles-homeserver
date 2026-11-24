@@ -8,11 +8,11 @@
     navidrome = {
       enable = true;
       subdomain = "music";
-      lanOnly = false;
       paths.music = {
         "/" = "/home/user/hddA/music";
       };
       paths.data = "/home/user/music/navidrome-data";
+      lanOnly = false;
       forceLan = false;
     };
 
@@ -28,21 +28,22 @@
     #   enable = true;
     # };
 
-    # nicotine = {
-    #   enable = true;
-    #   socket = true;
-    #   configuration = {
-    #     TZ="Europe/Paris";
-    #     DARKMODE="True";
-    #     UMASK="002";
-    #   };
-    #   paths = {
-    #     directories = {
-    #       "shared" = "/home/user/music";
-    #     };
-    #     downloads = "/home/user/music/downloads";
-    #   };
-    # };
+    nicotine = {
+      enable = true;
+      socket = true;
+      configuration = {
+        TZ = "Europe/Paris";
+        DARKMODE = "True";
+        UMASK = "002";
+      };
+      paths = {
+        directories = {
+          "shared" = "/home/user/hddA/music";
+        };
+        downloads = "/home/user/hddA/downloads";
+      };
+      basicAuth = {hopeflea = "password";};
+    };
 
     # metadata-remote = {
     #   enable = true;
@@ -54,23 +55,28 @@
     #   };
     # };
 
-    # picard = {
-    #   enable = true;
-    #   paths = {
-    #     directories = {
-    #       "storage" = "/home/user/music";
-    #     };
-    #   };
-    # };
+    picard = {
+      enable = false;
+      subdomain = "picard";
+      basicAuth = {hopeflea = "password";};
+      paths = {
+        directories = {
+          "storage" = "/home/user/hddA/music";
+        };
+      };
+    };
 
-    # filestash = {
-    #   enable = true;
-    #   paths = {
-    #     directories = {
-    #       "/mnt/music" = "/home/user/music";
-    #     };
-    #   };
-    # };
+    filestash = {
+      enable = true;
+      subdomain = "filestash";
+      lanOnly = false;
+      forceLan = false;
+      paths = {
+        directories = {
+          "/mnt/import" = "/home/user/hddA/import";
+        };
+      };
+    };
 
     # jellyfin = {
     #   enable = true;
